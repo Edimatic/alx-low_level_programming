@@ -2,6 +2,7 @@
 
 /**
  * main - Entry point
+ * Eplanation:A program that prints _putchar
  * Return:0
  */
 

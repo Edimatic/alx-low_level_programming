@@ -1,8 +1,8 @@
 #include "main.h"
 /**
  * add - returns the sum of its parameters
- * @a: int type number
- * @b: int type number
+ * @x: int type number
+ * @q: int type number
  * Return:0
  */
 

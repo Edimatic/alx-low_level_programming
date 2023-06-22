@@ -8,16 +8,16 @@
 
 int main(void)
 {
-	long int num = 612852475143;
-	long int AB;
+	long int x = 612852475143;
+	long int ab;
 
-	for (AB = 2; AB < num; AB++)
+	for (ab = 2; ab < x; ab++)
 	{
-		if (num % AB == 0)
+		if (x % ab == 0)
 		{
-			num = num / AB;
+			x = x / ab;
 		}
 	}
-	printf("%ld\n", AB);
+	printf("%ld\n", ab);
 	return (0);
 }

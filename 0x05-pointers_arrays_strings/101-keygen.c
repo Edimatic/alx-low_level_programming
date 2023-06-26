@@ -21,8 +21,8 @@ int main(void)
 	for (q = 0; q < 100; q++)
 	{
 		pass[q] = rand() % 78;
-		add += (pass[i] + '0');
-		putchar(pass[i] + '0');
+		add += (pass[q] + '0');
+		putchar(pass[q] + '0');
 		if ((2772 - add) - '0' < 78)
 		{
 			m = 2772 - add - '0';

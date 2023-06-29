@@ -9,7 +9,7 @@ char *string_toupper(char *str)
 {
 	int k;
 
-	for (k = 0; strk[k] != '\0'; k++)
+	for (k = 0; str[k] != '\0'; k++)
 	{
 		if (str[k] <= 'z' && str[k] >= 'a')
 			str[k] -= 32;

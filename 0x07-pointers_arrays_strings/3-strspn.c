@@ -7,25 +7,23 @@
 * Return: Length of occurrence.
 */
 
-unsigned int _strspn(char *s, char *accept) 
+unsigned int _strspn(char *s, char *accept)
 {
-    unsigned int length = 0;
-    int found;
+	unsigned int f = 0;
+	char *t = accept;
 
-    while (*s) {
-        found = 0;
-        for (char *p = accept; *p; p++) {
-            if (*s == *p) {
-                found = 1;
-                break;
-            }
-        }
-        if (!found) {
-            break;
-        }
-        length++;
-        s++;
-    }
-
-    return length;
+	while (*s++)
+	{
+		while (*accept++)
+			if (*(s - 1) == *(accept - 1))
+			{
+				f++;
+				break;
+			}
+		if (!(*--accept))
+			break;
+		accept = t;
+	}
+	return (f);
 }
+

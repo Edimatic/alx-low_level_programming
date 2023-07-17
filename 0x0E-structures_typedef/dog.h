@@ -3,10 +3,10 @@
 
 /**
  *  * struct dog - structure dog
- *   * @name: atribute pointer to char name's dog
- *    * @age: atribute float age's dog
- *     * @owner: atribute pointer to char owner's dog
- *      */
+ *   * @name: The atribute pointer to char name's dog
+ *    * @age: Giving the atribute float age's dog
+ *     * @owner: This is to atribute pointer to char owner's dog
+ */
 
 struct dog
 {

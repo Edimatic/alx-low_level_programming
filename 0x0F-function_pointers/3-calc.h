@@ -1,10 +1,10 @@
-#ifndef MAIN_HEAERD_FILE_CALC
-#define MAIN_HEADER_FILE_CALC
+#ifndef FILE_CALC
+#define FILE_CALC
 
 /**
- * struct op - outline Structure op
- * @op: operator
- * @f: function files
+ * struct op - Structure op
+ * @op: the operator function
+ * @f: the function prototype
  */
 
 typedef struct op

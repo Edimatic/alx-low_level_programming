@@ -1,4 +1,4 @@
-#ifndef MAIN_HEAERD_ FILE_CALC
+#ifndef MAIN_HEAERD_FILE_CALC
 #define MAIN_HEADER_FILE_CALC
 
 /**

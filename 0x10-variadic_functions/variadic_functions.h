@@ -1,6 +1,6 @@
 #ifndef VARIADIC_HEADER_FILE
 #define VARIADIC_HEADER_FILE
-#include <stdarg>
+#include <stdarg.h>
 
 int sum_them_all(const unsigned int n, ...);
 int _putchar(char c)
@@ -23,6 +23,5 @@ typedef struct printTypeStruct
 char *type;
 void (*printer)(va_list);
 } printTypeStruct;
-
 
 #endif

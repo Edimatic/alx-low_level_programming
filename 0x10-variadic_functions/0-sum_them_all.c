@@ -17,8 +17,8 @@ unsigned int sum = 0;
 
 va_start(list, n);
 if (n != 0)
-        for (z = 0; z < n; sum += va_arg(list, unsigned int), z++)
-        ;
+	for (z = 0; z < n; sum += va_arg(list, unsigned int), z++)
+		;
 va_end(list);
 
 return (sum);

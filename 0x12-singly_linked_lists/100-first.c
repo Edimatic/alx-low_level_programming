@@ -18,7 +18,6 @@ void print_first(void)
 
 	/* The complete text shown above */
 
-	printf("Main function executed.\n");
 }
 
 

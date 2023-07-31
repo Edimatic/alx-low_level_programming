@@ -5,7 +5,7 @@
  * add_nodeint - Add a new node at the beginning of a list.
  * @head: Address of the first node of a list.
  * @n: Integer to insert into the new node.
- * Return: Address of the new node.
+ * Return: Always new node address at the end
  **/
 
 listint_t *add_nodeint(listint_t **head, const int n)

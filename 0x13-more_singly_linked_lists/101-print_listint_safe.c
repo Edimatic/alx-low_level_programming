@@ -4,41 +4,33 @@
 
 /**
  * print_listint_safe - Prints a listint_t linked list safely.
- * @head: Pointer to the first node of the linked list.
+ * @head: Pointer to the first node in the linked list.
  *
  * Return: The number of nodes in the list.
  */
-
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *slow = head, *fast = head;
-	size_t count = 0;
+	const listint_t *current = head;
+	const listint_t *loop_node = NULL;
+	size_t node_count = 0;
 
-	while (slow && fast && fast->next)
+	while (current)
 	{
-		printf("[%p] %d\n", (void *)slow, slow->n);
-		count++;
+		printf("[%p] %d\n", (void *)current, current->n);
+		node_count++;
+		current = current->next;
 
-		slow = slow->next;
-		fast = fast->next->next;
-
-		if (slow == fast)
+	/* Check if the current node is repeated (loop detected) */
+		if (current == loop_node)
 		{
-			slow = head;
-			while (slow != fast)
-			{
-				printf("[%p] %d\n", (void *)slow, slow->n);
-				count++;
-				slow = slow->next;
-				fast = fast->next;
-			}
-
-	/* Print the node where the loop starts and exit the program with status 98 */
-			printf("[%p] %d\n", (void *)slow, slow->n);
-			exit(98);
+			printf("-> [%p] %d\n", (void *)current, current->n);
+			exit(98); /* Exit the program with status 98 */
 		}
+
+	/* Set the loop_node to the current node to detect loops */
+		loop_node = current;
 	}
 
-	return (count);
+	return (node_count);
 }
 

@@ -9,6 +9,7 @@
 
 /**
  * read_error - Exits the program with an error message.
+ * disceription: the ELF header at the start of an ELF file
  * @argv: The name of the program file.
  *
  * Return: void
@@ -26,7 +27,7 @@ void read_error(char *argv)
  */
 void check_elf(Elf64_Ehdr *header)
 {
-	int i = 0;
+	int k = 0;
 
 	if (header->e_ident[EI_MAG0] == 0x7f &&
 	    header->e_ident[EI_MAG1] == 'E' &&
@@ -36,8 +37,8 @@ void check_elf(Elf64_Ehdr *header)
 		printf("ELF Header:\n");
 		printf("  Magic:  ");
 
-		for (i = 0; i < 16; i++)
-			printf(" %02x", header->e_ident[i]);
+		for (k = 0; k < 16; k++)
+			printf(" %02x", header->e_ident[k]);
 		printf("\n");
 	}
 	else

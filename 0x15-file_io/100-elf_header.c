@@ -8,8 +8,10 @@
 #include <stdlib.h>
 
 /**
- * read_error - function that exits the program
- * @argv: argument
+ * read_error - Exits the program with an error message.
+ * disceription: the ELF header at the start of an ELF file
+ * @argv: The name of the program file.
+ *
  * Return: void
  */
 
@@ -19,13 +21,15 @@ void read_error(char *argv)
 	exit(98);
 }
 /**
- * check_elf - function that checks the format of the file, prints magic num
- * @header: pointer to the ELF header struct
+ * check_elf - Checks the format of the file and prints the ELF magic number.
+ * @header: Pointer to the ELF header struct.
+ *
  * Return: void
  */
+
 void check_elf(Elf64_Ehdr *header)
 {
-	int i = 0;
+	int kk = 0;
 
 	if (header->e_ident[EI_MAG0] == 0x7f &&
 	    header->e_ident[EI_MAG1] == 'E' &&
@@ -35,8 +39,8 @@ void check_elf(Elf64_Ehdr *header)
 		printf("ELF Header:\n");
 		printf("  Magic:  ");
 
-		for (i = 0; i < 16; i++)
-			printf(" %02x", header->e_ident[i]);
+		for (kk = 0; kk < 16; kk++)
+			printf(" %02x", header->e_ident[kk]);
 		printf("\n");
 	}
 	else
@@ -47,10 +51,12 @@ void check_elf(Elf64_Ehdr *header)
 }
 
 /**
- * check_class - function that checks the class of ELF format of the file
- * @header: pointer to the ELF header struct
+ * check_class - Checks the class of the ELF format of the file.
+ * @header: Pointer to the ELF header struct.
+ *
  * Return: void
  */
+
 void check_class(Elf64_Ehdr *header)
 {
 	if (header->e_ident[EI_CLASS] == ELFCLASS32)
@@ -64,6 +70,7 @@ void check_class(Elf64_Ehdr *header)
  * @header: pointer to the ELF header struct
  * Return: void
  */
+
 void check_data_ver(Elf64_Ehdr *header)
 {
 	if (header->e_ident[EI_DATA] == ELFDATA2LSB)
@@ -89,10 +96,10 @@ void check_data_ver(Elf64_Ehdr *header)
 	if (header->e_ident[EI_ABIVERSION] == 1)
 		printf("  ABI Version:                       1\n");
 }
-
 /**
- * check_type - function that checks the type of ELF file
- * @header: pointer to the ELF header struct
+ * check_type - Checks the type of ELF file.
+ * @header: Pointer to the ELF header struct.
+ *
  * Return: void
  */
 void check_type(Elf64_Ehdr *header)
@@ -102,10 +109,10 @@ void check_type(Elf64_Ehdr *header)
 	if (header->e_type == ET_NONE)
 		printf("  Type:                              Unknown type\n");
 }
-
 /**
- * check_entry - function that checks the type of ELF file
- * @header: pointer to the ELF header struct
+ * check_entry - Checks the entry point of ELF file.
+ * @header: Pointer to the ELF header struct.
+ *
  * Return: void
  */
 void check_entry(Elf64_Ehdr *header)
@@ -116,16 +123,18 @@ void check_entry(Elf64_Ehdr *header)
 		printf("  Entry point address:               0\n");
 }
 
-/**
- * main - program that prints ELF header formated
- * @argc: number of arguments passed to the program
- * @argv: string containing of the program and the ELF file
- * Return: 0 on success
+ /**
+ * main - Program that prints the ELF header formatted.
+ * @argc: Number of arguments passed to the program.
+ * @argv: Array of strings containing the program and the ELF file name.
+ *
+ * Return: 0 on success.
  */
 
 int main(int argc, char **argv)
 {
-	int fd64, read_char = 1;
+	int fd64;
+	int read_char = 1;
 	Elf64_Ehdr *header, size;
 
 	if (argc != 2)

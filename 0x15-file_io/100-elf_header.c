@@ -71,31 +71,27 @@ void check_class(Elf64_Ehdr *header)
 void check_data_ver(Elf64_Ehdr *header)
 {
 	if (header->e_ident[EI_DATA] == ELFDATA2LSB)
-		puts("  Data:				2's complement, little endian");
-	else if (header->e_ident[EI_DATA] == ELFDATA2MSB)
-		printf("  Data:				2's complement, big endian\n");
+		puts("  Data:                              2's complement, little endian");
+	if (header->e_ident[EI_DATA] == ELFDATA2MSB)
+		printf("  Data:                              2's complement, big endian\n");
 	if (header->e_ident[EI_VERSION] != 1)
-		printf("  Version:			1\n");
-	else
-		printf("  Version:			1 (current)\n");
-
-	switch (header->e_ident[EI_OSABI])
-	{
-		
-		case ELFOSABI_SYSV:
-			printf("  OS/ABI:		UNIX - System V\n");
-			break;
-		case ELFOSABI_NETBSD:
-			printf("  OS/ABI:		UNIX - NetBSD\n");
-			break;
-		case ELFOSABI_SOLARIS:
-			printf("  OS/ABI:		UNIX - Solaris\n");
-			break;
-		default:
-			printf("  OS/ABI:		<unknown: %x>\n", header->e_ident[EI_OSABI]);
-	}
-
-	printf("  ABI Version:				%d\n", header->e_ident[EI_ABIVERSION]);
+		printf("  Version:                           1\n");
+	if (header->e_ident[EI_VERSION] == 1)
+		printf("  Version:                           1 (current)\n");
+	if (header->e_ident[EI_OSABI] == ELFOSABI_NONE)
+		printf("  OS/ABI:                            UNIX - System V\n");
+	else if (header->e_ident[EI_OSABI] == ELFOSABI_SYSV)
+		printf("  OS/ABI:                            UNIX - System V\n");
+	if (header->e_ident[EI_OSABI] == ELFOSABI_NETBSD)
+		printf("  OS/ABI:                            UNIX - NetBSD\n");
+	if (header->e_ident[EI_OSABI] == ELFOSABI_SOLARIS)
+		printf("  OS/ABI:                            UNIX - Solaris\n");
+	if (header->e_ident[EI_OSABI] == 0x53)
+		printf("  OS/ABI:                            <unknown: 53>\n");
+	if (header->e_ident[EI_ABIVERSION] == 0)
+		printf("  ABI Version:                       0\n");
+	if (header->e_ident[EI_ABIVERSION] == 1)
+		printf("  ABI Version:                       1\n");
 }
 
 /**

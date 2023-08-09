@@ -126,7 +126,7 @@ void check_entry(Elf64_Ehdr *header)
 /**
  * main - program that prints ELF header formated
  * @argc: number of arguments passed to the program
- * @argv: string containing of the program and the ELF file
+ * @argv: Array of strings containing the program and the ELF file name
  *
  * Return: 0 on success
  */

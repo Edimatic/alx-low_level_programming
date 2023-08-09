@@ -123,12 +123,12 @@ void check_entry(Elf64_Ehdr *header)
 		printf("  Entry point address:               0\n");
 }
 
- /**
- * main - Program that prints the ELF header formatted.
- * @argc: Number of arguments passed to the program.
- * @argv: Array of strings containing the program and the ELF file name.
+/**
+ * main - program that prints ELF header formated
+ * @argc: number of arguments passed to the program
+ * @argv: string containing of the program and the ELF file
  *
- * Return: 0 on success.
+ * Return: 0 on success
  */
 
 int main(int argc, char **argv)

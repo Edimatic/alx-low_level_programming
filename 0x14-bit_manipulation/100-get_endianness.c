@@ -7,10 +7,10 @@
  */
 int get_endianness(void)
 {
-        unsigned int number = 1;
-        char *byte_pointer = (char *) &number;
+	unsigned int number = 1;
+	char *byte_pointer = (char *) &number;
 
 /* If the first byte (lowest address) is 1, it's a little endian machine */
-        return (*byte_pointer);
+	return (*byte_pointer);
 }
 

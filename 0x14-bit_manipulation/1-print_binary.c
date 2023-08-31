@@ -30,5 +30,5 @@ void print_binary(unsigned long int decimal_number)
 
 /* If count is still zero, the decimal_number is 0, so print 0 */
 	if (!count)
-        _putchar('0');
+	_putchar('0');
 }

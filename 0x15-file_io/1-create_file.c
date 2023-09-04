@@ -12,11 +12,11 @@
  */
 size_t _strlen(char *str)
 {
-        size_t length;
+	size_t length;
 
-        for (length = 0; str[length]; length++)
-                ;
-        return (length);
+	for (length = 0; str[length]; length++)
+		;
+	return (length);
 }
 
 /**
@@ -28,26 +28,27 @@ size_t _strlen(char *str)
  */
 int create_file(const char *filename, char *text_content)
 {
-        int f_descriptor;
-        ssize_t content_length = 0;
+	int fil_des;
+	ssize_t content_length = 0;
 
-        if (filename == NULL)
-                return (-1);
+	if (filename == NULL)
+	return (-1);
+
 /* Open file for writing, create if it doesn't exist, truncate if it does */
-f_descriptor = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
-        if (f_descriptor == -1)
-                return (-1);
+fil_des = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+	if (fil_des == -1)
+		return (-1);
 
 if (text_content != NULL)
-        {
+	{
 /* Write the text content to the file */
-content_length = write(f_descriptor, text_content, _strlen(text_content));
-        }
+content_length = write(fil_des, text_content, _strlen(text_content));
+	}
 
-        close(f_descriptor);
+	close(fil_des);
 
-        if (content_length == -1)
-                return (-1);
+	if (content_length == -1)
+		return (-1);
 
-        return (1);
+	return (1);
 }

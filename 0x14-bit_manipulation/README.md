@@ -1,1 +1,1 @@
-C - Bit manipulation
+Manipulation of bits using bitwise operators

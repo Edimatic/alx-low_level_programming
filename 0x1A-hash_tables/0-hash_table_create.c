@@ -13,22 +13,22 @@ hash_table_t *hash_table_create(unsigned long int size)
 	unsigned long int eddy;
 
 	if (size == 0)
-		{
-			return (NULL);
+	{
+		return (NULL);
 	}
 
 /* Allocate memory for hash table structure */
 	hash_table = malloc(sizeof(hash_table_t));
 	if (hash_table == NULL)
-		{
+	{
 		return (NULL);
 	}
 
 /* Allocate memory for array of hash nodes */
 	hash_table->array = malloc(sizeof(hash_node_t *) * size);
 	if (hash_table->array == NULL)
-		{
-			free(hash_table);
+	{
+		free(hash_table);
 		return (NULL);
 	}
 
@@ -37,8 +37,8 @@ hash_table_t *hash_table_create(unsigned long int size)
 /* Initialize all hash node pointers to NULL */
 	for (eddy = 0; eddy < size; eddy++)
 	{
-			hash_table->array[eddy] = NULL;
-		}
+		hash_table->array[eddy] = NULL;
+	}
 
-return (hash_table);
+	return (hash_table);
 }
